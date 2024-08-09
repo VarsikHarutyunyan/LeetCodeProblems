@@ -211,6 +211,65 @@ namespace LeetCodeProblems
 
             return k;
         }
+
+        public static int StrStr(string haystack, string needle)
+        {
+            if (string.IsNullOrEmpty(haystack) || string.IsNullOrEmpty(needle)
+                || haystack.Length > 100000 || needle.Length > 100000)
+            {
+                return -1;
+            }
+
+            if (haystack.Length < needle.Length)
+            {
+                return -1;
+            }
+
+            for (int i = 0; i <= haystack.Length - needle.Length; i++)
+            {
+                int j;
+                for (j = 0; j < needle.Length; j++)
+                {
+                    if (haystack[i + j] != needle[j])
+                    {
+                        break;
+                    }
+                }
+                if (j == needle.Length)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public static int SearchInsert(int[] nums, int target)
+        {
+            int left = 0;
+            int right = nums.Length - 1;
+
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+
+                if (nums[mid] == target)
+                {
+                    return mid;
+                }
+                else if (nums[mid] < target)
+                {
+                    left = mid + 1; 
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+
+            return left;
+        }
+
     }
 }
 

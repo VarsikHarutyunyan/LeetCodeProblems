@@ -22,3 +22,9 @@
 
 //var count = Solution.RemoveElement([0, 1, 4, 2, 3, 0], 2);
 //Console.WriteLine(count);
+//string haystack = "mississippi"; string needle = "issip";
+//int index =Solution.StrStr(haystack, needle);
+//Console.WriteLine(index);
+
+int[] arr = { 1, 3, 5, 6 };
+Solution.SearchInsert(arr,5);
